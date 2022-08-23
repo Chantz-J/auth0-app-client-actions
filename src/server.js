@@ -80,7 +80,7 @@ app.get('/list', function(req, res) {
         //Look for client_id substring in string of action's code block
         for (let i = 0; i < allClients.length; i++) {
             for (let j = 0; j < actions[0].length; j++) {
-              if (actions[0][j].code.includes(allClients[i].name)) {
+              if (actions[0][j].code.includes(allClients[i].client_id)) {
                 // Pair any matches, and log a string of these matches, printing the name of the action, 
                 // the client it references, 
                 // and the supported triggers.
