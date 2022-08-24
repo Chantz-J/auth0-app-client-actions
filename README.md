@@ -9,7 +9,7 @@ Afterwards, it will return a dymanic list of tenant's actions, the client they r
 
 ## 🚨 Forking this repo (please read!)
 
-You will need your own _**CLIENT_ID**_, _**CLIENT_SECRET**_, and _**DOMAIN**_.
+You will need your own _**CLIENT_ID**_, _**CLIENT_SECRET**_, _**DOMAIN**_, _**SECRET**_, and _**BASEURL**_
 Make sure that the application credentials are authorised to use your Management API.
 
 The API must also have the `read:clients` and `read:actions` scopes enabled.
@@ -17,7 +17,7 @@ The API must also have the `read:clients` and `read:actions` scopes enabled.
 
 ## 🛠 Installation & Set Up
 
-1. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
+1. Install and use the correct version of NPM
 
    ```sh
    npm install npm@latest -g

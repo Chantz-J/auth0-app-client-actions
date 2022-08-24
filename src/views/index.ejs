@@ -1,0 +1,7 @@
+<h1 class="text-4xl">Hello World!</h1>
+
+<% if (locals.isAuthenticated) { %>
+    <p>You are logged in. <a href="/list" class="underline">Take a look at your list in the console.</a>. <a href="/logout" class="underline">Or click here to log out.</a></p>
+<% } else { %>
+    <p>You are not logged in. <a href="/login" class="underline">Login here</a>. <a href="/list" class="underline">Or attempt to access the list page, to be redirected.</a></p>
+<% } %>

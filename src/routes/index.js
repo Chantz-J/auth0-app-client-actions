@@ -3,33 +3,25 @@ const app = express();
 const axios = require('axios').default;
 const request = require('request');
 require('dotenv').config();
-// const { auth } = require('express-openid-connect');
-// const { auth, requiresAuth } = require('express-openid-connect');
+const { auth, requiresAuth } = require('express-openid-connect');
+var router = require('express').Router();
 
 // Authorization middleware. When used, the Access Token must 
 // exist and be verified against the Auth0 JSON Web Key Set. 
 
-const PORT = process.env.PORT || 8080;
+
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const DOMAIN = process.env.DOMAIN;
 
-
-
-// auth router attaches /login, /logout, and /callback routes to the baseURL
-app.use(auth(config));
-
-app.get('/', (req, res) => {
-    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
+router.get('/', (req, res) => {
+    res.render('index', {
+        title: 'Auth0 action clients',
+        isAuthenticated: req.oidc.isAuthenticated()
+    });
 });
 
-// app.get('/', function(req, res) {
-//     res.json({
-//         message: 'Hello World!'
-//     });
-// });
-
-app.get('/list', function(req, res) {
+router.get('/list', requiresAuth(), function(req, res) {
 
     let actions = [];
     let clients = [];
@@ -93,7 +85,7 @@ app.get('/list', function(req, res) {
         //Look for client_id substring in string of action's code block
         for (let i = 0; i < clients[0].length; i++) {
             for (let j = 0; j < actions[0].length; j++) {
-              if (actions[0][j].code.includes(clients[0][i].client_id)) {
+              if (actions[0][j].code.includes(clients[0][i].name)) {
                 // Pair any matches, and log a string of these matches, printing the name of the action, 
                 // the client it references, 
                 // and the supported triggers.
@@ -107,8 +99,4 @@ app.get('/list', function(req, res) {
 
 });
 
-// PORT
-app.listen(PORT, function() {
-    console.log(`Listening on http://localhost:${PORT}`);
-});
-
+module.exports = router;
