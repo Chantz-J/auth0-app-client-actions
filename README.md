@@ -5,7 +5,7 @@ When trying to access on the /list route in the index file, you will be redirect
 
 Upon successfully authenticating, the endpoint will recieve a bearer token, which the server can then use to fetch all deployed clients and actions from the tenant.
 
-This script assumes (and only handles) the code blocks of the user's actions that make reference to a client(s) via the `client_id`. It will use the client's ID as a substring to search for, within the action's code block (string).
+This script assumes (and only handles) the code blocks of the user's actions that make reference to a client(s) via the `name`. It will use the client's name as a substring to search for, within the action's code block (string).
 
 Afterwards, it will console.log a dymanic list of tenant's actions, the client they reference, and their supported triggers.
 
