@@ -23,7 +23,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 8080;
 const BASE_URL = process.env.baseURL || 'http://localhost:8080'
 const CLIENT_ID = process.env.CLIENT_ID;
-const issuerBaseURL = process.env.DOMAIN
+const issuerBaseURL = process.env.AUTH0_ISSUER_BASE_URL;
 const SECRET = process.env.SECRET || 'my_secret'
 
 const config = {
