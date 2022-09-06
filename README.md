@@ -9,6 +9,10 @@ This script assumes (and only handles) the code blocks of the user's actions tha
 
 Afterwards, it will console.log a dymanic list of tenant's actions, the client they reference, and their supported triggers.
 
+![All Apps in Auth0 tenant](/src/images/Applications%202022-09-05%20at%208.48.48%20PM.jpg)
+
+![Client name in action code export](/src/images/Actions%202022-09-05%20at%208.50.14%20PM.jpg)
+
 ![Data being logged to the console](/src/images/-env%20%E2%80%94%20auth-0-simlutation%202022-09-05%20at%208.02.39%20PM.jpg)
 
 ## 🚨 Forking this repo (please read!)
